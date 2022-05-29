@@ -15,7 +15,6 @@ import (
 //show Traces UI on http://localhost:16686
 //show Metrics UI on show UI on localhost:9090
 
-
 func main() {
 	quit := make(chan os.Signal)
 	signal.Notify(quit, os.Interrupt, syscall.SIGTERM)
