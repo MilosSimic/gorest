@@ -11,6 +11,11 @@ import (
 	"time"
 )
 
+// ACCESS UI on:
+//show Traces UI on http://localhost:16686
+//show Metrics UI on show UI on localhost:9090
+
+
 func main() {
 	quit := make(chan os.Signal)
 	signal.Notify(quit, os.Interrupt, syscall.SIGTERM)
@@ -29,9 +34,6 @@ func main() {
 	router.HandleFunc("/post/{id}/", count(server.getPostHandler)).Methods("GET")
 	router.HandleFunc("/post/{id}/", count(server.delPostHandler)).Methods("DELETE")
 	router.Path("/metrics").Handler(metricsHandler()) //scrape metrics from service
-
-	//show Traces UI on http://localhost:16686
-	//show Metrics UI on show UI on localhost:9090
 
 	// start server
 	srv := &http.Server{Addr: "0.0.0.0:8000", Handler: router}
