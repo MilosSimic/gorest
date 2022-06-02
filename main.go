@@ -14,6 +14,7 @@ import (
 // ACCESS UI on:
 //show Traces UI on http://localhost:16686
 //show Metrics UI on show UI on localhost:9090
+//Added to test Gith Actions flow :)
 
 func main() {
 	quit := make(chan os.Signal)
